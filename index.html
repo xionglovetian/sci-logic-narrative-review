@@ -115,6 +115,50 @@
     display:flex;align-items:center;gap:10px;
   }
   .subhead:before{content:"";width:3px;height:16px;background:var(--accent);border-radius:2px;display:inline-block}
+
+  /* 平台选择 */
+  .picker{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px;margin-top:8px}
+  .pick{
+    position:relative;background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    padding:24px 22px 22px;display:flex;flex-direction:column;gap:14px;
+    min-width:0;overflow:hidden;
+    transition:border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+  }
+  .pick:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(0,0,0,.45)}
+  .pick.claude{border-top:3px solid #d2a8ff}
+  .pick.claude:hover{border-color:#d2a8ff}
+  .pick.codex{border-top:3px solid #7ee787}
+  .pick.codex:hover{border-color:#7ee787}
+  .pick.dsh{border-top:3px solid #58a6ff}
+  .pick.dsh:hover{border-color:#58a6ff}
+  .pick h3{margin:0;font-size:19px;letter-spacing:-.2px}
+  .pick .fmt{color:var(--dim);font-size:12.6px;margin:0}
+  .pick .where{
+    font-size:12.4px;color:#c9d4e0;background:var(--panel2);border:1px solid var(--line);
+    border-radius:7px;padding:7px 10px;font-family:ui-monospace,Consolas,monospace;word-break:break-all;
+  }
+  .pick pre{margin:0;padding:12px 12px;font-size:11px;line-height:1.75;max-width:100%;overflow-x:auto}
+  .pick pre code{white-space:pre;display:block;word-break:keep-all}
+  .pick .acts{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap;padding-top:4px}
+  .pick .acts a{
+    font-size:13.2px;font-weight:600;padding:8px 13px;border-radius:8px;
+    border:1px solid var(--line);background:var(--panel2);
+  }
+  .pick .acts a:hover{text-decoration:none;filter:brightness(1.15)}
+  .pick .acts a.main{border-color:currentColor}
+  .pick.claude .acts a.main{color:#d2a8ff}
+  .pick.codex .acts a.main{color:#7ee787}
+  .pick.dsh .acts a.main{color:#58a6ff}
+  .pick .note{font-size:12.2px;color:var(--dim);margin:0;line-height:1.6}
+  .shared-note{
+    margin-top:22px;padding:16px 20px;border:1px dashed var(--line);border-radius:10px;
+    background:rgba(88,166,255,.05);color:#c9d4e0;font-size:14px;
+  }
+  pre.install-all{
+    margin:0;padding:18px 20px;font-size:13px;line-height:1.8;overflow-x:auto;
+    background:var(--panel2);border:1px solid var(--line);border-radius:12px;
+  }
+  pre.install-all code{white-space:pre;display:block;background:none;border:none;padding:0}
 </style>
 </head>
 <body>
@@ -137,12 +181,95 @@
       并且<strong>每一轮审查都强制交付一份带证据定位的漏洞报告</strong>：判决、漏洞卡片、修改处方、复审判据。
     </p>
     <div class="cta">
-      <a class="btn primary" href="#advantages">看九个优点</a>
+      <a class="btn primary" href="#pick">选择你的平台（Claude / Codex / DSH）</a>
+      <a class="btn" href="#advantages">看九个优点</a>
+      <a class="btn" href="#architecture">看架构图</a>
       <a class="btn" href="#verdict">路径判定</a>
-      <a class="btn" href="#install">安装</a>
     </div>
   </div>
 </header>
+
+<section id="pick">
+  <div class="wrap">
+    <h2>选择你的平台</h2>
+    <p class="sec-sub">三个版本，<strong>同一套能力、同一份报告契约</strong>。装哪个都能用，也可以三个都装——它们读的是同一份技能目录，互不冲突。</p>
+
+    <div class="picker">
+
+      <div class="pick claude">
+        <h3>Claude Code</h3>
+        <p class="fmt">Agent Skills · 终端 / VS Code / JetBrains / 桌面版</p>
+        <div class="where">~/.claude/skills/</div>
+        <p class="note">也支持走插件市场 <code>/plugin marketplace add</code>，或用本地 <code>--plugin-dir</code> 试装。</p>
+        <div class="acts">
+          <a class="main" href="docs/platforms/claude.md">Claude 安装指南</a>
+          <a href="https://github.com/xionglovetian/sci-logic-narrative-review/blob/main/.claude-plugin/plugin.json">插件清单</a>
+        </div>
+      </div>
+
+      <div class="pick codex">
+        <h3>Codex</h3>
+        <p class="fmt">Agent Skills · CLI / IDE 扩展 / 桌面版</p>
+        <div class="where">~/.codex/skills/</div>
+        <p class="note">也可在 <code>~/.codex/config.toml</code> 用 <code>[[skills.config]]</code> 显式登记，改完需重启。</p>
+        <div class="acts">
+          <a class="main" href="docs/platforms/codex.md">Codex 安装指南</a>
+          <a href="https://github.com/xionglovetian/sci-logic-narrative-review/blob/main/plugin.json">插件清单</a>
+        </div>
+      </div>
+
+      <div class="pick dsh">
+        <h3>DeepSeek Harness</h3>
+        <p class="fmt">Agent Skills + manifest.yaml · 桌面 / Web</p>
+        <div class="where">~/.agents/skills/</div>
+        <p class="note">唯一使用 <code>manifest.yaml</code> 按阶段装载的平台；装好自动刷新，无需重启。</p>
+        <div class="acts">
+          <a class="main" href="docs/platforms/dsh.md">DSH 安装指南</a>
+          <a href="https://github.com/xionglovetian/sci-logic-narrative-review/blob/main/skills/sci-logic-narrative-review/manifest.yaml">装载表</a>
+        </div>
+      </div>
+
+    </div>
+
+    <h3 style="margin-top:34px">一条命令装到你要用的平台</h3>
+    <p class="sec-sub" style="margin-top:8px">克隆一次，把技能目录复制到宿主下即可。<strong>三个都装也互不冲突</strong>——它们读同一批文件。</p>
+    <pre class="install-all"><code># 1) 克隆（一次就够）
+git clone https://github.com/xionglovetian/sci-logic-narrative-review.git
+cd sci-logic-narrative-review
+
+# 2) 复制到你要用的平台（任选，可多选）
+cp -r skills/sci-logic-narrative-review ~/.claude/skills/     # Claude Code
+cp -r skills/sci-logic-narrative-review ~/.codex/skills/      # Codex
+cp -r skills/sci-logic-narrative-review ~/.agents/skills/     # DeepSeek Harness
+
+# 3) Windows PowerShell 等价写法（以 Claude Code 为例）
+New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills" | Out-Null
+Copy-Item -Recurse -Force "skills\sci-logic-narrative-review" "$env:USERPROFILE\.claude\skills\"</code></pre>
+
+    <div class="shared-note">
+      <strong>不想装？</strong> 任意 agent 都能直接读仓库根的
+      <a href="https://github.com/xionglovetian/sci-logic-narrative-review/blob/main/AGENTS.md"><code>AGENTS.md</code></a>
+      ——单文件摘要，含六镜头、判定标准与报告契约。
+      三端的差异全表见
+      <a href="https://github.com/xionglovetian/sci-logic-narrative-review/blob/main/PLATFORMS.md"><code>PLATFORMS.md</code></a>。
+    </div>
+
+    <h3 style="margin-top:36px">三版本对照</h3>
+    <table>
+      <thead>
+        <tr><th>维度</th><th>Claude Code</th><th>Codex</th><th>DeepSeek Harness</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>技能发现</td><td><code>~/.claude/skills/</code>、插件 <code>skills/</code></td><td><code>~/.codex/skills/</code>、<code>[[skills.config]]</code></td><td><code>~/.agents/skills/</code>、<code>.dsh/skills/</code></td></tr>
+        <tr><td>清单文件</td><td><code>.claude-plugin/plugin.json</code></td><td>根 <code>plugin.json</code></td><td>技能内 <code>manifest.yaml</code></td></tr>
+        <tr><td>市场分发</td><td><code>/plugin marketplace add</code></td><td><code>codex plugin marketplace add</code></td><td>直接放目录</td></tr>
+        <tr><td>显示名</td><td><code>displayName</code></td><td><code>agents/openai.yaml</code></td><td><code>description</code> 首段</td></tr>
+        <tr><td>校验器</td><td><code>claude plugin validate --strict</code></td><td><code>check_platforms.py</code></td><td><code>check_manifest.py</code></td></tr>
+        <tr><td>渐进披露</td><td>支持</td><td>支持（有 token 预算）</td><td>支持（<code>manifest.yaml</code>）</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
 <section id="architecture">
   <div class="wrap">

@@ -18,6 +18,21 @@ This skill is designed to answer that — before a reviewer does.
 
 ---
 
+## Choose your platform
+
+Three versions, **one shared skill directory and one report contract**. Install whichever host you use — or all three; they read the same files and do not conflict.
+
+| Your host | Install to | Guide | One-liner |
+|---|---|---|---|
+| **Claude Code** | `~/.claude/skills/` (or as a plugin) | [docs/platforms/claude.md](docs/platforms/claude.md) | `cp -r skills/sci-logic-narrative-review ~/.claude/skills/` |
+| **Codex** | `~/.codex/skills/` (or `[[skills.config]]`) | [docs/platforms/codex.md](docs/platforms/codex.md) | `cp -r skills/sci-logic-narrative-review ~/.codex/skills/` |
+| **DeepSeek Harness** | `~/.agents/skills/` (or `.dsh/skills/`) | [docs/platforms/dsh.md](docs/platforms/dsh.md) | `cp -r skills/sci-logic-narrative-review ~/.agents/skills/` |
+| **Any other agent** | just read `AGENTS.md` | [AGENTS.md](AGENTS.md) | — |
+
+Full differences table: [PLATFORMS.md](PLATFORMS.md).
+
+---
+
 ## How it works — architecture
 
 ![Workflow architecture](docs/images/workflow.svg)

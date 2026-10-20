@@ -1,5 +1,20 @@
 # 平台支持：Claude Code / Codex / DeepSeek Harness
 
+## 选你的平台
+
+三个版本**同一套能力、同一套报告契约**，只是安装方式不同。挑一个：
+
+| 你用哪个 | 装哪里 | 详细指南 | 一行安装 |
+|---|---|---|---|
+| **Claude Code** | `~/.claude/skills/` 或插件 | [docs/platforms/claude.md](docs/platforms/claude.md) | `cp -r skills/sci-logic-narrative-review ~/.claude/skills/` |
+| **Codex** | `~/.codex/skills/` 或 `[[skills.config]]` | [docs/platforms/codex.md](docs/platforms/codex.md) | `cp -r skills/sci-logic-narrative-review ~/.codex/skills/` |
+| **DeepSeek Harness** | `~/.agents/skills/` 或 `.dsh/skills/` | [docs/platforms/dsh.md](docs/platforms/dsh.md) | `cp -r skills/sci-logic-narrative-review ~/.agents/skills/` |
+| **其它任意 agent** | 读 `AGENTS.md` 即可 | [AGENTS.md](AGENTS.md) | — |
+
+三端共用同一份技能目录（`SKILL.md` + `core/` + `references/` + `assets/` + `scripts/`），可以同时装、互不影响。
+
+---
+
 这套 skill 遵循 [Agent Skills 开放标准](https://agentskills.io/)（`SKILL.md` + `name` / `description` frontmatter），所以**一份技能目录，四端通用**。差别只在"怎么装进去"和"插件清单长什么样"。
 
 | 平台 | 读取的技能格式 | 本仓库提供的清单 |

@@ -18,6 +18,21 @@
 
 ---
 
+## 选择你的平台
+
+三个版本，**同一份技能目录、同一份报告契约**。用哪个宿主就装哪个——也可以三个都装，它们读同一批文件、互不冲突。
+
+| 你的宿主 | 装到哪 | 详细指南 | 一行安装 |
+|---|---|---|---|
+| **Claude Code** | `~/.claude/skills/`（或作为插件） | [docs/platforms/claude.md](docs/platforms/claude.md) | `cp -r skills/sci-logic-narrative-review ~/.claude/skills/` |
+| **Codex** | `~/.codex/skills/`（或 `[[skills.config]]`） | [docs/platforms/codex.md](docs/platforms/codex.md) | `cp -r skills/sci-logic-narrative-review ~/.codex/skills/` |
+| **DeepSeek Harness** | `~/.agents/skills/`（或 `.dsh/skills/`） | [docs/platforms/dsh.md](docs/platforms/dsh.md) | `cp -r skills/sci-logic-narrative-review ~/.agents/skills/` |
+| **其它任意 agent** | 直接读 `AGENTS.md` | [AGENTS.md](AGENTS.md) | — |
+
+三端完整差异对照：[PLATFORMS.md](PLATFORMS.md)。
+
+---
+
 ## 工作流程架构
 
 ![工作流程架构](docs/images/workflow.svg)
