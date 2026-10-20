@@ -1,0 +1,11 @@
+# Keep the repo byte-identical across platforms — this is text content, not line-ending content.
+* text=auto eol=lf
+
+# Explicit types (Windows users should not rewrite these on checkout)
+*.md    text eol=lf
+*.yaml  text eol=lf
+*.yml   text eol=lf
+*.py    text eol=lf
+*.html  text eol=lf
+*.json  text eol=lf
+LICENSE text eol=lf

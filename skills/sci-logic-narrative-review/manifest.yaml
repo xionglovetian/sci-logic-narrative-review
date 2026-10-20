@@ -1,0 +1,91 @@
+name: sci-logic-narrative-review
+version: 1.0.0
+description: >
+  声明式装载表。SKILL.md 用它决定一次审查该读哪些文件。装载原则：先骨架（stance/flow/report-contract），
+  再判据（gap-checklist/rubric），再处方（judgment-paths），溯源文件按需。
+
+always_load:
+  - core/stance.md            # 审查立场、P0–P3 严重度、红线、自我失败模式
+  - core/flow.md              # 七步执行序列与每步强制产出
+  - core/report-contract.md   # 报告硬性契约（缺项即不合格）
+
+stages:
+  intake:
+    detect: |
+      审查开始时执行：盘点输入、判定输入缺口等级（G0/G1/G2）。
+      关键缺口（无台账 / 无对照记录 / 只有摘要）时不得进入全量审查，按 G1 或 G2 走保守审查。
+    read:
+      - core/flow.md            # 第一步 + 1.1 收料 + 1.2 缺口分级
+    values:
+      G0 完整:     全量审查，可给 P-A
+      G1 部分:     全量审查但数字类结论标"未验证"，禁止给 P-A
+      G2 严重:     只出"部分审查"，不给路径判定
+    default: G1 部分
+    multi: false
+
+  lenses:
+    detect: |
+      六个审查镜头 L1–L6。永远全部过一遍；用户只问某一节时，未涉及的镜头在报告的
+      "本轮边界声明"里写"未覆盖"，不许默认它们没问题。
+    read:
+      - core/gap-checklist.md
+    values:
+      L1 缺口真实性:   gap-checklist 一、
+      L2 方案对症性:   gap-checklist 二、
+      L3 因果闭环:     gap-checklist 三、（权重最高，含三层实验与等容量对照）
+      L4 贡献可分性:   gap-checklist 四、
+      L5 图表分层:     gap-checklist 五、
+      L6 边界自限:     gap-checklist 六、
+      D 数字与声称:    gap-checklist 七、（双轨比对的落点）
+    default: 全部
+    multi: true
+
+  scoring:
+    detect: |
+      收集完漏洞后打分并判定路径。打分的唯一目的是判定 P-A/P-B/P-C；
+      分数本身不决定路径，硬阈值才决定路径。
+    read:
+      - core/rubric.md
+    values:
+      P-A 方法创新型:  rubric 二、三（须全过 P-A1..A6）
+      P-B 评估认知型:  rubric 四、（须做叙事降级）
+      P-C 证据不足:    rubric 二、（命中任一 C1..C7）
+    default: P-B 评估认知型
+    multi: false
+
+  report:
+    detect: |
+      写报告阶段。骨架必用模板，处方必用路径库，落盘后必跑脚本自检。
+    read:
+      - assets/report-template.md
+      - references/judgment-paths.md
+    values:
+      骨架: assets/report-template.md
+      处方: references/judgment-paths.md（按判定取对应路径一节）
+      自检: scripts/check_report.py（退出码 0 才算通过）
+    default: 骨架
+    multi: true
+
+  escalation:
+    detect: |
+      出现以下任一情况才装载：用户要求"按顶刊/最严标准再审一遍"、此前已有拒稿记录、
+      稿件自评已达标但审查结果矛盾、或用户质疑审查标准本身。
+    read:
+      - references/methodology-source.md
+    values:
+      宽松 预审自检:  methodology-source 四、
+      标准 默认:      methodology-source 四、
+      严格 顶刊复审:  methodology-source 四、（额外：逐图完整性、全量数字核验、模块必要性追问）
+    default: 标准
+    multi: false
+
+references:
+  on_demand:
+    - condition: 给修改处方——需要三套路径（P-A 方法创新型 / P-B 评估认知型 / P-C 证据不足）各自的逐节改写动作、最小补实验集、以及补完后哪几项判定会翻转
+      path: references/judgment-paths.md
+    - condition: 用户追问审查标准来源、要求严格度分级执行、需要按文章类型调整权重、或需要解释"为什么这条是 P1 不是 P2"
+      path: references/methodology-source.md
+    - condition: 需要把审查落到真实文件上——判断该收哪些输入、如何从稿件抽可定位引文、数字核验怎么抽样、多轮之间如何做差分追踪
+      path: references/input-intake.md
+    - condition: 需要校准报告格式或确认"合格报告长什么样"（含各字段示例写法）
+      path: assets/example-report.md
