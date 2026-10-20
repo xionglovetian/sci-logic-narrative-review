@@ -170,6 +170,7 @@ skills/sci-logic-narrative-review/    the skill (drop into any skill loader)
   scripts/check_manifest.py           load-table integrity checker
 examples/demo-report.md               publishable demo report
 docs/METHODOLOGY.md                   where the framework comes from and its limits
+index.html                            landing page (served by GitHub Pages)
 ```
 
 ## Honest limits

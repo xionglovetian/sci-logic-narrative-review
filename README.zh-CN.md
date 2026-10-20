@@ -170,6 +170,7 @@ skills/sci-logic-narrative-review/    技能本体（丢进任意 skill 加载�
   scripts/check_manifest.py           装载表完整性校验器
 examples/demo-report.md               可对外展示的示例报告
 docs/METHODOLOGY.md                   框架从哪来、边界在哪
+index.html                            网页版首页（GitHub Pages 托管）
 ```
 
 ## 诚实的边界
