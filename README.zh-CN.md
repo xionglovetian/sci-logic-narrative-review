@@ -4,7 +4,7 @@
 
 一个模拟的投稿前同行评审。它不润色、不代写：它沿着整篇稿件的叙事链条逐环审计，把你审稿人迟早会找到的漏洞按结构挖出来，并且**每一轮审查都强制交付一份带证据定位的判决报告**——含可执行修改处方与下一轮的复审判据。
 
-**English: [README.md](README.md)** · **方法论溯源：[docs/METHODOLOGY.md](docs/METHODOLOGY.md)** · **示例报告：[examples/demo-report.md](examples/demo-report.md)**
+**English: [README.md](README.md)** · **网页首页：https://xionglovetian.github.io/sci-logic-narrative-review/** · **方法论溯源：[docs/METHODOLOGY.md](docs/METHODOLOGY.md)** · **示例报告：[examples/demo-report.md](examples/demo-report.md)**
 
 ---
 

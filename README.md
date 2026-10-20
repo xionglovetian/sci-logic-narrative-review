@@ -4,7 +4,7 @@
 
 A pre-submission peer review, simulated. Not a proofreader, not a polisher: an auditor that walks the entire narrative chain of your manuscript, hunts structurally for the holes a reviewer will find, and **hands you a written verdict report for every review round** — with evidence-pinned locations, actionable fixes, and pass criteria for the next round.
 
-**中文版：[README.zh-CN.md](README.zh-CN.md)** · **方法论溯源：[docs/METHODOLOGY.md](docs/METHODOLOGY.md)** · **示例报告：[examples/demo-report.md](examples/demo-report.md)**
+**中文版：[README.zh-CN.md](README.zh-CN.md)** · **Landing page: https://xionglovetian.github.io/sci-logic-narrative-review/** · **方法论溯源：[docs/METHODOLOGY.md](docs/METHODOLOGY.md)** · **示例报告：[examples/demo-report.md](examples/demo-report.md)**
 
 ---
 
