@@ -102,6 +102,19 @@
     header.hero{padding:56px 0 40px}
     section{padding:44px 0}
   }
+  figure.diagram{margin:0 0 26px;text-align:center}
+  figure.diagram img{
+    width:100%;height:auto;border:1px solid var(--line);border-radius:12px;
+    background:#0b0f14;display:block;
+  }
+  figure.diagram figcaption{
+    color:var(--dim);font-size:13.2px;margin-top:12px;text-align:left;line-height:1.7;
+  }
+  .subhead{
+    font-size:15.5px;margin:38px 0 14px;color:#cdd8e3;
+    display:flex;align-items:center;gap:10px;
+  }
+  .subhead:before{content:"";width:3px;height:16px;background:var(--accent);border-radius:2px;display:inline-block}
 </style>
 </head>
 <body>
@@ -128,6 +141,33 @@
     </div>
   </div>
 </header>
+
+<section id="architecture">
+  <div class="wrap">
+    <h2>工作流程架构</h2>
+    <p class="sec-sub">七步执行 · 六个镜头 · 双轨比对 · 三路径判定 · 每轮强制出报告 · 自检回环</p>
+
+    <figure class="diagram">
+      <img src="docs/images/workflow.svg" alt="SCI逻辑叙事审查 工作流程架构图：收料与分级 → 六个镜头 → 双轨比对 → 三路径判定 → 报告交付 → 契约自检 → 下一轮闭环差分" width="1160" height="986" loading="eager">
+      <figcaption>
+        <strong>读法：</strong>左列是审查的七步执行序列，产物缺一即视为该步未完成；
+        右上四类输入按「轨 A 稿件 / 轨 B 证据」分流，缺台账直接记为 P0 并禁止判 P-A；
+        判定必须三选一（P-A / P-B / P-C）并说明为什么不能走另外两条；
+        报告经 <code>check_report.py</code> 自检通过后才交付，然后带闭环差分进入下一轮。
+        底部六个镜头按依赖顺序推进——后一个镜头依赖前一个的结论。
+      </figcaption>
+    </figure>
+
+    <figure class="diagram">
+      <img src="docs/images/file-architecture.svg" alt="文件架构图：SKILL.md 路由，core 恒读判据，references 按需，assets 模板，scripts 强制契约" width="1160" height="720" loading="lazy">
+      <figcaption>
+        <code>SKILL.md</code> 只做路由；<code>core/</code> 是恒读的骨架与判据主体；<code>references/</code> 按需装载；
+        <code>assets/</code> 提供报告骨架与合格样例；<code>scripts/</code> 强制执行契约。
+        报告落在你的工作区，不进 skill 目录——多轮并存、编号跨轮稳定。
+      </figcaption>
+    </figure>
+  </div>
+</section>
 
 <section>
   <div class="wrap">

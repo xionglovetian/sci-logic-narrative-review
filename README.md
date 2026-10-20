@@ -18,6 +18,23 @@ This skill is designed to answer that — before a reviewer does.
 
 ---
 
+## How it works — architecture
+
+![Workflow architecture](docs/images/workflow.svg)
+
+*Seven-step execution: intake and completeness grading → six lenses → dual-track comparison → path verdict (P-A / P-B / P-C) → mandatory report → contract self-check → next round with a closure diff. The six lenses are ordered by dependency: each later lens relies on the previous one's conclusion.*
+
+<details>
+<summary><strong>File architecture and on-demand loading</strong> (click to expand)</summary>
+
+![File architecture](docs/images/file-architecture.svg)
+
+`SKILL.md` is only a router. `core/` holds the always-loaded skeleton and judgement criteria, `references/` loads on demand, `assets/` supplies the report skeleton, and `scripts/` enforces the contract. The report is written to your workspace, never into the skill directory.
+
+</details>
+
+---
+
 ## The 9 advantages
 
 ### 1. A report is mandatory — silence is impossible

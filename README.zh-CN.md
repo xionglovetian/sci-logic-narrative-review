@@ -18,6 +18,23 @@
 
 ---
 
+## 工作流程架构
+
+![工作流程架构](docs/images/workflow.svg)
+
+*七步执行：收料与分级 → 六个镜头 → 双轨比对 → 三路径判定（P-A / P-B / P-C）→ 强制出报告 → 契约自检 → 下一轮闭环差分。六个镜头按依赖顺序推进：后一个镜头依赖前一个的结论。*
+
+<details>
+<summary><strong>文件架构与按需装载</strong>（点击展开）</summary>
+
+![文件架构](docs/images/file-architecture.svg)
+
+`SKILL.md` 只做路由：`core/` 是恒读的骨架与判据，`references/` 按需装载，`assets/` 提供报告骨架，`scripts/` 强制执行契约。报告落到你的工作区，不进 skill 目录。
+
+</details>
+
+---
+
 ## 九个优点
 
 ### 1. 报告是强制的——"没问题"不被允许

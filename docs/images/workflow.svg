@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="986" viewBox="0 0 1160 986" font-family="'Segoe UI','Noto Sans SC','PingFang SC','Microsoft YaHei',Helvetica,Arial,sans-serif" role="img" aria-label="SCI逻辑叙事审查 工作流程架构图">
+<title>SCI逻辑叙事审查 工作流程架构图</title>
+<defs>
+<marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9aa7b4"/></marker>
+<marker id="arwA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#58a6ff"/></marker>
+<marker id="arwG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7ee787"/></marker>
+<style>
+.t{fill:#e6edf3} .d{fill:#9aa7b4} .mk{font-family:'Cascadia Code','Consolas','Liberation Mono',monospace}
+text{dominant-baseline:middle}
+</style>
+</defs>
+<rect width="1160" height="986" rx="14" fill="#0d1117"/>
+<text x="36" y="46" font-size="23" fill="#e6edf3" text-anchor="start" font-weight="700">SCI逻辑叙事审查 · 工作流程架构</text>
+<text x="36" y="74" font-size="13.5" fill="#9aa7b4" text-anchor="start" font-weight="400">从收料 → 分级 → 七步审查 → 三路径判定 → 报告交付 → 自检回环</text>
+<rect x="36" y="104" width="620" height="724" rx="14" fill="#10161f" stroke="#30363d" stroke-width="1.4"/>
+<text x="56" y="130" font-size="14" fill="#58a6ff" text-anchor="start" font-weight="700">审查执行：七步（产物缺一即未完成）</text>
+<rect x="56" y="150" width="580" height="92" rx="11" fill="#161b22" stroke="#58a6ff" stroke-width="1.4"/>
+<rect x="56" y="150" width="5" height="92" rx="2.5" fill="#58a6ff"/>
+<circle cx="92" cy="196.0" r="15" fill="#1c2330" stroke="#58a6ff" stroke-width="1.4"/>
+<text x="92" y="197.0" font-size="15" fill="#58a6ff" text-anchor="middle" font-weight="700">1</text>
+<text x="120" y="180" font-size="15.5" fill="#e6edf3" text-anchor="start" font-weight="600">输入盘点与缺口分级</text>
+<text x="120" y="206" font-size="12.8" fill="#9aa7b4" text-anchor="start" font-weight="400">稿件 · 图表 · 台账 · 期刊 → 判定 G0 / G1 / G2</text>
+<rect x="546" y="162" width="60" height="20" rx="10.0" fill="none" stroke="#58a6ff" stroke-width="1.2" opacity="0.85"/><text x="576.0" y="172.5" font-size="11" fill="#58a6ff" text-anchor="middle" font-weight="400">定位索引</text>
+<path d="M92,242 L92,247" stroke="#30363d" stroke-width="1.6" fill="none" marker-end="url(#arw)"/>
+<rect x="56" y="248" width="580" height="92" rx="11" fill="#161b22" stroke="#7ee787" stroke-width="1.4"/>
+<rect x="56" y="248" width="5" height="92" rx="2.5" fill="#7ee787"/>
+<circle cx="92" cy="294.0" r="15" fill="#1c2330" stroke="#7ee787" stroke-width="1.4"/>
+<text x="92" y="295.0" font-size="15" fill="#7ee787" text-anchor="middle" font-weight="700">2</text>
+<text x="120" y="278" font-size="15.5" fill="#e6edf3" text-anchor="start" font-weight="600">L1–L2 故事链前置</text>
+<text x="120" y="304" font-size="12.8" fill="#9aa7b4" text-anchor="start" font-weight="400">缺口是否成立 → 方案是否逐条对症</text>
+<rect x="546" y="260" width="60" height="20" rx="10.0" fill="none" stroke="#7ee787" stroke-width="1.2" opacity="0.85"/><text x="576.0" y="270.5" font-size="11" fill="#7ee787" text-anchor="middle" font-weight="400">短路规则</text>
+<path d="M92,340 L92,345" stroke="#30363d" stroke-width="1.6" fill="none" marker-end="url(#arw)"/>
+<rect x="56" y="346" width="580" height="92" rx="11" fill="#161b22" stroke="#ffa657" stroke-width="1.4"/>
+<rect x="56" y="346" width="5" height="92" rx="2.5" fill="#ffa657"/>
+<circle cx="92" cy="392.0" r="15" fill="#1c2330" stroke="#ffa657" stroke-width="1.4"/>
+<text x="92" y="393.0" font-size="15" fill="#ffa657" text-anchor="middle" font-weight="700">3</text>
+<text x="120" y="376" font-size="15.5" fill="#e6edf3" text-anchor="start" font-weight="600">L3 因果闭环</text>
+<text x="120" y="402" font-size="12.8" fill="#9aa7b4" text-anchor="start" font-weight="400">主对比 / 等容量控制对照 / 泛化鲁棒（三层）</text>
+<rect x="546" y="358" width="49" height="20" rx="10.0" fill="none" stroke="#ffa657" stroke-width="1.2" opacity="0.85"/><text x="570.5" y="368.5" font-size="11" fill="#ffa657" text-anchor="middle" font-weight="400">最耗时</text>
+<path d="M92,438 L92,443" stroke="#30363d" stroke-width="1.6" fill="none" marker-end="url(#arw)"/>
+<rect x="56" y="444" width="580" height="92" rx="11" fill="#161b22" stroke="#d2a8ff" stroke-width="1.4"/>
+<rect x="56" y="444" width="5" height="92" rx="2.5" fill="#d2a8ff"/>
+<circle cx="92" cy="490.0" r="15" fill="#1c2330" stroke="#d2a8ff" stroke-width="1.4"/>
+<text x="92" y="491.0" font-size="15" fill="#d2a8ff" text-anchor="middle" font-weight="700">4</text>
+<text x="120" y="474" font-size="15.5" fill="#e6edf3" text-anchor="start" font-weight="600">L4–L6 结构性审查</text>
+<text x="120" y="500" font-size="12.8" fill="#9aa7b4" text-anchor="start" font-weight="400">贡献三处摆放 · 图表分层 · 边界自限</text>
+<path d="M92,536 L92,541" stroke="#30363d" stroke-width="1.6" fill="none" marker-end="url(#arw)"/>
+<rect x="56" y="542" width="580" height="92" rx="11" fill="#161b22" stroke="#58a6ff" stroke-width="1.4"/>
+<rect x="56" y="542" width="5" height="92" rx="2.5" fill="#58a6ff"/>
+<circle cx="92" cy="588.0" r="15" fill="#1c2330" stroke="#58a6ff" stroke-width="1.4"/>
+<text x="92" y="589.0" font-size="15" fill="#58a6ff" text-anchor="middle" font-weight="700">5</text>
+<text x="120" y="572" font-size="15.5" fill="#e6edf3" text-anchor="start" font-weight="600">双轨比对</text>
+<text x="120" y="598" font-size="12.8" fill="#9aa7b4" text-anchor="start" font-weight="400">数字轨 · 声称轨 · 口径轨（稿件 vs 台账）</text>
+<rect x="546" y="554" width="60" height="20" rx="10.0" fill="none" stroke="#58a6ff" stroke-width="1.2" opacity="0.85"/><text x="576.0" y="564.5" font-size="11" fill="#58a6ff" text-anchor="middle" font-weight="400">不可跳过</text>
+<path d="M92,634 L92,639" stroke="#30363d" stroke-width="1.6" fill="none" marker-end="url(#arw)"/>
+<rect x="56" y="640" width="580" height="92" rx="11" fill="#161b22" stroke="#ff7b72" stroke-width="1.4"/>
+<rect x="56" y="640" width="5" height="92" rx="2.5" fill="#ff7b72"/>
+<circle cx="92" cy="686.0" r="15" fill="#1c2330" stroke="#ff7b72" stroke-width="1.4"/>
+<text x="92" y="687.0" font-size="15" fill="#ff7b72" text-anchor="middle" font-weight="700">6</text>
+<text x="120" y="670" font-size="15.5" fill="#e6edf3" text-anchor="start" font-weight="600">评分与路径判定</text>
+<text x="120" y="696" font-size="12.8" fill="#9aa7b4" text-anchor="start" font-weight="400">七维加权 + 六类致命项硬阈值 → P-A/P-B/P-C</text>
+<rect x="546" y="652" width="60" height="20" rx="10.0" fill="none" stroke="#ff7b72" stroke-width="1.2" opacity="0.85"/><text x="576.0" y="662.5" font-size="11" fill="#ff7b72" text-anchor="middle" font-weight="400">先查阈值</text>
+<path d="M92,732 L92,737" stroke="#30363d" stroke-width="1.6" fill="none" marker-end="url(#arw)"/>
+<rect x="56" y="738" width="580" height="92" rx="11" fill="#161b22" stroke="#7ee787" stroke-width="1.4"/>
+<rect x="56" y="738" width="5" height="92" rx="2.5" fill="#7ee787"/>
+<circle cx="92" cy="784.0" r="15" fill="#1c2330" stroke="#7ee787" stroke-width="1.4"/>
+<text x="92" y="785.0" font-size="15" fill="#7ee787" text-anchor="middle" font-weight="700">7</text>
+<text x="120" y="768" font-size="15.5" fill="#e6edf3" text-anchor="start" font-weight="600">生成报告并自检</text>
+<text x="120" y="794" font-size="12.8" fill="#9aa7b4" text-anchor="start" font-weight="400">填模板 → 落盘 → 跑校验器（自检不过不算完成）</text>
+<rect x="690" y="104" width="434" height="132" rx="14" fill="#10161f" stroke="#30363d" stroke-width="1.4"/>
+<text x="708" y="128" font-size="13.5" fill="#58a6ff" text-anchor="start" font-weight="700">输入（轨 A 稿件 / 轨 B 证据）</text>
+<rect x="708" y="146" width="190" height="32" rx="8" fill="#1c2330" stroke="#30363d" stroke-width="1.4"/>
+<text x="720" y="163" font-size="12.8" fill="#e6edf3" text-anchor="start" font-weight="400">稿件正文</text>
+<rect x="913" y="146" width="190" height="32" rx="8" fill="#1c2330" stroke="#30363d" stroke-width="1.4"/>
+<text x="925" y="163" font-size="12.8" fill="#e6edf3" text-anchor="start" font-weight="400">图表与图注</text>
+<rect x="708" y="188" width="190" height="32" rx="8" fill="#1c2330" stroke="#30363d" stroke-width="1.4"/>
+<text x="720" y="205" font-size="12.8" fill="#e6edf3" text-anchor="start" font-weight="400">实验台账</text>
+<rect x="913" y="188" width="190" height="32" rx="8" fill="#1c2330" stroke="#30363d" stroke-width="1.4"/>
+<text x="925" y="205" font-size="12.8" fill="#e6edf3" text-anchor="start" font-weight="400">目标期刊</text>
+<path d="M907.0,236 L907.0,262" stroke="#58a6ff" stroke-width="1.6" fill="none" marker-end="url(#arwA)"/>
+<text x="917.0" y="250" font-size="11.5" fill="#ffa657" text-anchor="start" font-weight="400">无台账 → P0 无证据底座，禁止 P-A</text>
+<rect x="690" y="266" width="434" height="150" rx="14" fill="#10161f" stroke="#30363d" stroke-width="1.4"/>
+<text x="708" y="290" font-size="13.5" fill="#ff7b72" text-anchor="start" font-weight="700">路径判定（三选一，须排除另两条）</text>
+<rect x="708" y="306" width="398" height="30" rx="8" fill="#1c2330" stroke="#7ee787" stroke-width="1.2"/>
+<text x="720" y="321" font-size="12.5" fill="#7ee787" text-anchor="start" font-weight="700" class="mk">P-A</text>
+<text x="764" y="321" font-size="12.5" fill="#e6edf3" text-anchor="start" font-weight="600">方法创新型</text>
+<text x="842" y="321.5" font-size="11.4" fill="#9aa7b4" text-anchor="start" font-weight="400">等容量对照明显弱 → 大修后接收</text>
+<rect x="708" y="341" width="398" height="30" rx="8" fill="#1c2330" stroke="#58a6ff" stroke-width="1.2"/>
+<text x="720" y="356" font-size="12.5" fill="#58a6ff" text-anchor="start" font-weight="700" class="mk">P-B</text>
+<text x="764" y="356" font-size="12.5" fill="#e6edf3" text-anchor="start" font-weight="600">评估认知型</text>
+<text x="842" y="356.5" font-size="11.4" fill="#9aa7b4" text-anchor="start" font-weight="400">对照缺失/微弱但缺口真 → 中修可接受</text>
+<rect x="708" y="376" width="398" height="30" rx="8" fill="#1c2330" stroke="#ff7b72" stroke-width="1.2"/>
+<text x="720" y="391" font-size="12.5" fill="#ff7b72" text-anchor="start" font-weight="700" class="mk">P-C</text>
+<text x="764" y="391" font-size="12.5" fill="#e6edf3" text-anchor="start" font-weight="600">证据不足</text>
+<text x="842" y="391.5" font-size="11.4" fill="#9aa7b4" text-anchor="start" font-weight="400">无对照却称因果 / 数字不可溯源 → 拒稿</text>
+<path d="M907.0,416 L907.0,440" stroke="#ff7b72" stroke-width="1.6" fill="none" marker-end="url(#arw)"/>
+<rect x="690" y="444" width="434" height="156" rx="14" fill="#10161f" stroke="#7ee787" stroke-width="1.6"/>
+<text x="708" y="468" font-size="13.5" fill="#7ee787" text-anchor="start" font-weight="700">报告交付（每轮一份 · 强制）</text>
+<text x="716" y="492" font-size="12.2" fill="#c9d4e0" text-anchor="start" font-weight="400">▪ 判决摘要 + 致命项清单</text>
+<text x="716" y="511" font-size="12.2" fill="#c9d4e0" text-anchor="start" font-weight="400">▪ 评分表（A–F 合计 − G 扣分）</text>
+<text x="716" y="530" font-size="12.2" fill="#c9d4e0" text-anchor="start" font-weight="400">▪ 漏洞卡片 V-xx（八字段 · 带定位）</text>
+<text x="716" y="549" font-size="12.2" fill="#c9d4e0" text-anchor="start" font-weight="400">▪ 数字核验表（≥8 行）</text>
+<text x="716" y="568" font-size="12.2" fill="#c9d4e0" text-anchor="start" font-weight="400">▪ 声称强度越级清单</text>
+<text x="716" y="587" font-size="12.2" fill="#c9d4e0" text-anchor="start" font-weight="400">▪ 处方 + 复审判据 + 下一步顺序</text>
+<path d="M907.0,600 L907.0,622" stroke="#7ee787" stroke-width="1.6" fill="none" marker-end="url(#arwG)"/>
+<rect x="730" y="624" width="354" height="54" rx="10" fill="#1c2330" stroke="#7ee787" stroke-width="1.4" stroke-dasharray="5 4"/>
+<text x="907.0" y="644" font-size="12.4" fill="#7ee787" text-anchor="middle" font-weight="600">check_report.py 契约自检 · 12 类硬性项</text>
+<text x="907.0" y="662" font-size="11.3" fill="#9aa7b4" text-anchor="middle" font-weight="400">不过 → 补报告；通过 → 交付</text>
+<path d="M1084,651 L1148,651 L1148,118 L1122,118" stroke="#7ee787" stroke-width="1.6" fill="none" marker-end="url(#arwG)" stroke-dasharray="6 5"/>
+<text x="1118" y="470" font-size="11" fill="#7ee787" text-anchor="end" font-weight="400" opacity="0.9">下一轮</text>
+<text x="1118" y="486" font-size="11" fill="#7ee787" text-anchor="end" font-weight="400" opacity="0.9">闭环差分</text>
+<path d="M654,500 L680,500 L680,380 L688,380" stroke="#58a6ff" stroke-width="1.6" fill="none" marker-end="url(#arwA)"/>
+<text x="691" y="480" font-size="11.5" fill="#58a6ff" text-anchor="start" font-weight="400">判定</text>
+<rect x="36" y="848" width="1088" height="110" rx="14" fill="#10161f" stroke="#30363d" stroke-width="1.4"/>
+<text x="56" y="872" font-size="13.5" fill="#58a6ff" text-anchor="start" font-weight="700">六个审查镜头（顺序不可颠倒，后者依赖前者）</text>
+<rect x="56" y="890" width="158" height="50" rx="9" fill="#161b22" stroke="#58a6ff" stroke-width="1.3"/>
+<text x="70" y="915" font-size="13" fill="#58a6ff" text-anchor="start" font-weight="700" class="mk">L1</text>
+<text x="100" y="915" font-size="13" fill="#e6edf3" text-anchor="start" font-weight="600">缺口真实性</text>
+<path d="M215,915 L226,915" stroke="#30363d" stroke-width="1.6"/>
+<path d="M226,911 l5,4 l-5,4" fill="none" stroke="#30363d" stroke-width="1.6"/>
+<rect x="228" y="890" width="158" height="50" rx="9" fill="#161b22" stroke="#7ee787" stroke-width="1.3"/>
+<text x="242" y="915" font-size="13" fill="#7ee787" text-anchor="start" font-weight="700" class="mk">L2</text>
+<text x="272" y="915" font-size="13" fill="#e6edf3" text-anchor="start" font-weight="600">方案对症性</text>
+<path d="M387,915 L398,915" stroke="#30363d" stroke-width="1.6"/>
+<path d="M398,911 l5,4 l-5,4" fill="none" stroke="#30363d" stroke-width="1.6"/>
+<rect x="400" y="890" width="158" height="50" rx="9" fill="#161b22" stroke="#ffa657" stroke-width="1.3"/>
+<text x="414" y="915" font-size="13" fill="#ffa657" text-anchor="start" font-weight="700" class="mk">L3</text>
+<text x="444" y="915" font-size="13" fill="#e6edf3" text-anchor="start" font-weight="600">因果闭环</text>
+<path d="M559,915 L570,915" stroke="#30363d" stroke-width="1.6"/>
+<path d="M570,911 l5,4 l-5,4" fill="none" stroke="#30363d" stroke-width="1.6"/>
+<rect x="572" y="890" width="158" height="50" rx="9" fill="#161b22" stroke="#d2a8ff" stroke-width="1.3"/>
+<text x="586" y="915" font-size="13" fill="#d2a8ff" text-anchor="start" font-weight="700" class="mk">L4</text>
+<text x="616" y="915" font-size="13" fill="#e6edf3" text-anchor="start" font-weight="600">贡献可分性</text>
+<path d="M731,915 L742,915" stroke="#30363d" stroke-width="1.6"/>
+<path d="M742,911 l5,4 l-5,4" fill="none" stroke="#30363d" stroke-width="1.6"/>
+<rect x="744" y="890" width="158" height="50" rx="9" fill="#161b22" stroke="#58a6ff" stroke-width="1.3"/>
+<text x="758" y="915" font-size="13" fill="#58a6ff" text-anchor="start" font-weight="700" class="mk">L5</text>
+<text x="788" y="915" font-size="13" fill="#e6edf3" text-anchor="start" font-weight="600">图表分层</text>
+<path d="M903,915 L914,915" stroke="#30363d" stroke-width="1.6"/>
+<path d="M914,911 l5,4 l-5,4" fill="none" stroke="#30363d" stroke-width="1.6"/>
+<rect x="916" y="890" width="158" height="50" rx="9" fill="#161b22" stroke="#7ee787" stroke-width="1.3"/>
+<text x="930" y="915" font-size="13" fill="#7ee787" text-anchor="start" font-weight="700" class="mk">L6</text>
+<text x="960" y="915" font-size="13" fill="#e6edf3" text-anchor="start" font-weight="600">边界自限</text>
+</svg>
