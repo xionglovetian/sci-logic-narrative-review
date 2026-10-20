@@ -2,14 +2,19 @@
 name: sci-logic-narrative-review
 description: SCI逻辑叙事审查 — 模拟投稿前的同行评审，按「科学缺口→方案对症→因果闭环→贡献三分→图表分层→边界自限」六段故事链审查整篇稿件，按「双轨审查」逐句比对稿件声称与实验台账，量化打分并判定叙事路径（方法创新型 / 评估认知型 / 证据不足必须补实验），每次审查强制产出一份带证据定位的漏洞报告，并给出可直接执行的修改处方与复审判据。Use for 投稿前自审、模拟审稿、审稿人视角挑漏洞、稿件漏洞扫描、贡献同质化检查、控制对照是否闭环、过度声称核查、叙事路径判定，或用户说「帮我审一下这篇稿」「投稿前检查」「会不会被拒」「审稿人会问什么」时。
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   license: "MIT"
   language: "zh-CN"
+  works-with: "Claude Code, Codex (CLI, IDE, desktop), DeepSeek Harness, any Agent Skills host"
 ---
 
 # SCI逻辑叙事审查 — Router
 
 > 英文标识 `sci-logic-narrative-review`（旧名 `pre-submit-audit`，已更名；功能不变）。
+>
+> **跨平台**：本文件与 `core/` `references/` `assets/` `scripts/` 都是普通 Markdown，遵循 Agent Skills 标准
+> （Claude Code / Codex / DeepSeek Harness 通用）。只有 `manifest.yaml` 是 DSH 专用装载表，其它宿主会忽略它。
+> 下文所有相对路径均**相对本文件所在目录**。安装与平台差异见仓库 `PLATFORMS.md`。
 
 本 skill 只做一件事：**在稿子出门前，当一次最刻薄的审稿人，并把漏洞写成可执行的报告。**
 

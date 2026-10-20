@@ -135,33 +135,60 @@ python skills/sci-logic-narrative-review/scripts/check_manifest.py
 
 ## 安装
 
-这个 skill 是一个自包含目录：`SKILL.md` + `manifest.yaml` + `core/` + `references/` + `assets/` + `scripts/`。为 DeepSeek Harness（DSH）的 skill 加载器编写；内容全是普通 Markdown，任何读取 `SKILL.md` 的 agent 框架都能用。
+一份技能目录，四端通用。全部是普通 Markdown，遵循 [Agent Skills 开放标准](https://agentskills.io/)，所以 **Claude Code、Codex、DeepSeek Harness、以及任何读 `SKILL.md` 的 agent 加载的是同一批文件**。差别只在打包方式——完整对照见 [PLATFORMS.md](PLATFORMS.md)。
 
 ```bash
 git clone https://github.com/xionglovetian/sci-logic-narrative-review.git
 cd sci-logic-narrative-review
+```
 
-# 用户级（所有项目可用）
+**Claude Code** —— 作为技能直接装（最简单），或作为插件从本仓库市场安装：
+
+```bash
+mkdir -p ~/.claude/skills
+cp -r skills/sci-logic-narrative-review ~/.claude/skills/
+# 或在 Claude Code 里：
+#   /plugin marketplace add xionglovetian/sci-logic-narrative-review
+#   /plugin install sci-logic-narrative-review@sci-logic-narrative-review-marketplace
+```
+
+**Codex** —— 装成独立技能（推荐），或装成插件：
+
+```bash
+mkdir -p ~/.codex/skills
+cp -r skills/sci-logic-narrative-review ~/.codex/skills/
+# 或在 ~/.codex/config.toml 显式登记：
+#   [[skills.config]]
+#   path = "<绝对路径>/skills/sci-logic-narrative-review/SKILL.md"
+#   enabled = true
+```
+
+**DeepSeek Harness**：
+
+```bash
 mkdir -p ~/.agents/skills
 cp -r skills/sci-logic-narrative-review ~/.agents/skills/
-
-# 项目级（只在该项目可用）
-mkdir -p /你的项目路径/.dsh/skills
-cp -r skills/sci-logic-narrative-review /你的项目路径/.dsh/skills/
 ```
 
 ```powershell
-# Windows PowerShell 等价写法
-git clone https://github.com/xionglovetian/sci-logic-narrative-review.git
-cd sci-logic-narrative-review
-New-Item -ItemType Directory -Force "$env:USERPROFILE\.agents\skills" | Out-Null
-Copy-Item -Recurse -Force "skills\sci-logic-narrative-review" "$env:USERPROFILE\.agents\skills\"
+# Windows PowerShell 等价写法（上面任一端通用）
+New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills" | Out-Null
+Copy-Item -Recurse -Force "skills\sci-logic-narrative-review" "$env:USERPROFILE\.claude\skills\"
+```
+
+**其它 agent**：直接让它读 [`AGENTS.md`](AGENTS.md)——六镜头、判定标准、报告契约的单文件摘要。
+
+### 验证打包
+
+```bash
+python skills/sci-logic-narrative-review/scripts/check_platforms.py   # Claude / Codex / DSH 三端清单
+claude plugin validate . --strict                                     # Claude Code 官方校验器
 ```
 
 然后直接说：
 
 - 「用 SCI逻辑叙事审查 审一下这篇稿」
-- 「投稿前查一遍，审稿人会打哪里」
+- "Review this manuscript before submission — what will the reviewer attack?"
 
 首轮需要：稿件 + 图表图注 + 目标期刊。**提供实验台账才能做完整双轨比对**——没有的话报告会标 `G1 部分`，并禁止判 P-A。
 
@@ -172,7 +199,8 @@ Copy-Item -Recurse -Force "skills\sci-logic-narrative-review" "$env:USERPROFILE\
 ```
 skills/sci-logic-narrative-review/    技能本体（丢进任意 skill 加载器即可）
   SKILL.md                            路由：流程、六镜头、输出契约
-  manifest.yaml                       声明式装载表（阶段 → 文件）
+  manifest.yaml                       DSH 声明式装载表（其它宿主忽略）
+  agents/openai.yaml                  Codex/ChatGPT 的展示名与调用策略（可选）
   core/stance.md                      审稿人立场、P0–P3、红线、自我失败模式
   core/flow.md                        七步执行序列与每步强制产出
   core/gap-checklist.md               七类漏洞、60+ 可判定项、F1–F6 致命项
@@ -184,10 +212,17 @@ skills/sci-logic-narrative-review/    技能本体（丢进任意 skill 加载�
   assets/report-template.md           报告骨架
   assets/example-report.md            一份填好且通过自检的报告
   scripts/check_report.py             报告契约校验器
-  scripts/check_manifest.py           装载表完整性校验器
+  scripts/check_manifest.py           DSH 装载表完整性校验器
+  scripts/check_platforms.py          Claude / Codex / DSH 三端清单校验器
 examples/demo-report.md               可对外展示的示例报告
 docs/METHODOLOGY.md                   框架从哪来、边界在哪
+docs/images/                          架构图（SVG + 生成脚本）
 index.html                            网页版首页（GitHub Pages 托管）
+plugin.json                           Codex / Agent Plugins 清单
+.claude-plugin/                       Claude Code 插件与市场清单
+.agents/plugins/marketplace.json      Codex 市场目录
+AGENTS.md                             通用单文件入口（任意 agent）
+PLATFORMS.md                          各平台安装与打包差异
 ```
 
 ## 诚实的边界

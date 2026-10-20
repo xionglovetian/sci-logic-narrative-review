@@ -1,0 +1,30 @@
+{
+  "name": "sci-logic-narrative-review-marketplace",
+  "owner": {
+    "name": "xionglovetian",
+    "url": "https://github.com/xionglovetian"
+  },
+  "description": "Pre-submission peer review for manuscripts: SCI逻辑叙事审查 — narrative audit, dual-track claim/ledger comparison, three-way path verdict, mandatory vulnerability report.",
+  "metadata": {
+    "description": "Pre-submission peer review for manuscripts: SCI逻辑叙事审查."
+  },
+  "plugins": [
+    {
+      "name": "sci-logic-narrative-review",
+      "source": "./",
+      "description": "SCI逻辑叙事审查 — six-lens narrative audit, dual-track claim/ledger comparison, three-way path verdict, and a mandatory evidence-pinned vulnerability report every round.",
+      "version": "1.1.0",
+      "author": {
+        "name": "xionglovetian"
+      },
+      "homepage": "https://xionglovetian.github.io/sci-logic-narrative-review/",
+      "license": "MIT",
+      "keywords": [
+        "peer-review",
+        "manuscript",
+        "academic-writing",
+        "sci"
+      ]
+    }
+  ]
+}

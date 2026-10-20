@@ -4,6 +4,8 @@
 
 > 旧名 `pre-submit-audit`，已更名，功能不变。
 
+**跨平台**：遵循 Agent Skills 开放标准，`SKILL.md` + `core/` + `references/` + `assets/` + `scripts/` 在 **Claude Code、Codex、DeepSeek Harness** 以及任何读 `SKILL.md` 的宿主里通用。只有 `manifest.yaml` 是 DSH 专用（其它宿主忽略）。安装方式与平台差异见仓库的 [`PLATFORMS.md`](../../PLATFORMS.md)。
+
 ## 它做什么
 
 1. 按 **六个镜头** 审全稿：缺口真实性 → 方案对症性 → 因果闭环 → 贡献可分性 → 图表分层 → 边界自限
@@ -29,7 +31,8 @@
 
 ```
 SKILL.md                         路由：流程总览、六个镜头、输出约定、纪律
-manifest.yaml                    声明式装载表（按需读文件，不要一次读全）
+manifest.yaml                    DSH 声明式装载表（按需读文件，不要一次读全；其它宿主忽略）
+agents/openai.yaml               Codex / ChatGPT 的展示名与调用策略（可选）
 core/
   stance.md                      审查立场、P0–P3 严重度、红线、七种自我失败模式
   flow.md                        七步执行序列，每步的强制产出
@@ -45,7 +48,8 @@ assets/
   example-report.md              合格样例（自检与校准格式用，内容为虚构示例）
 scripts/
   check_report.py                报告契约校验器（退出码 0 通过 / 1 不合格 / 2 读不到）
-  check_manifest.py              装载表结构校验（引用是否可达、stage 字段是否齐全）
+  check_manifest.py              DSH 装载表结构校验（引用是否可达、字段是否齐全）
+  check_platforms.py             Claude / Codex / DSH 三端清单与技能结构校验
 ```
 
 ## 装载顺序

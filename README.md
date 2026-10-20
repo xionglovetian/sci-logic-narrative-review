@@ -135,27 +135,54 @@ The skill refuses to trade integrity for acceptance:
 
 ## Install
 
-The skill is a self-contained folder: `SKILL.md` + `manifest.yaml` + `core/` + `references/` + `assets/` + `scripts/`. It is written for DeepSeek Harness (DSH) skill loaders; the content is plain Markdown and portable to any agent that reads a `SKILL.md`.
+One skill directory, four hosts. Everything is plain Markdown following the [Agent Skills standard](https://agentskills.io/), so **Claude Code, Codex, DeepSeek Harness, and any agent that reads `SKILL.md` all load the same files**. Only the packaging differs — full table in [PLATFORMS.md](PLATFORMS.md).
 
 ```bash
 git clone https://github.com/xionglovetian/sci-logic-narrative-review.git
 cd sci-logic-narrative-review
+```
 
-# user-level (all projects) — bash / macOS / Linux / Git Bash
+**Claude Code** — as a skill (simplest), or as a plugin from this repo's marketplace:
+
+```bash
+mkdir -p ~/.claude/skills
+cp -r skills/sci-logic-narrative-review ~/.claude/skills/
+# or, inside Claude Code:
+#   /plugin marketplace add xionglovetian/sci-logic-narrative-review
+#   /plugin install sci-logic-narrative-review@sci-logic-narrative-review-marketplace
+```
+
+**Codex** — standalone skill (recommended), or as a plugin:
+
+```bash
+mkdir -p ~/.codex/skills
+cp -r skills/sci-logic-narrative-review ~/.codex/skills/
+# or register explicitly in ~/.codex/config.toml:
+#   [[skills.config]]
+#   path = "<abs>/skills/sci-logic-narrative-review/SKILL.md"
+#   enabled = true
+```
+
+**DeepSeek Harness**:
+
+```bash
 mkdir -p ~/.agents/skills
 cp -r skills/sci-logic-narrative-review ~/.agents/skills/
-
-# project-level (this project only)
-mkdir -p /path/to/your/project/.dsh/skills
-cp -r skills/sci-logic-narrative-review /path/to/your/project/.dsh/skills/
 ```
 
 ```powershell
-# Windows PowerShell equivalent
-git clone https://github.com/xionglovetian/sci-logic-narrative-review.git
-cd sci-logic-narrative-review
-New-Item -ItemType Directory -Force "$env:USERPROFILE\.agents\skills" | Out-Null
-Copy-Item -Recurse -Force "skills\sci-logic-narrative-review" "$env:USERPROFILE\.agents\skills\"
+# Windows PowerShell equivalent (any of the above)
+New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills" | Out-Null
+Copy-Item -Recurse -Force "skills\sci-logic-narrative-review" "$env:USERPROFILE\.claude\skills\"
+```
+
+**Any other agent**: point it at [`AGENTS.md`](AGENTS.md) — a single-file summary of the lenses, verdict criteria, and report contract.
+
+### Verify the packaging
+
+```bash
+python skills/sci-logic-narrative-review/scripts/check_platforms.py   # Claude / Codex / DSH manifests
+claude plugin validate . --strict                                     # Claude Code's own validator
 ```
 
 Then ask, in Chinese or English:
@@ -172,7 +199,8 @@ First round needs: manuscript + figures/tables (with captions) + target journal.
 ```
 skills/sci-logic-narrative-review/    the skill (drop into any skill loader)
   SKILL.md                            router: pipeline, six lenses, output contract
-  manifest.yaml                       declarative load table (stage → files)
+  manifest.yaml                       DSH declarative load table (ignored by other hosts)
+  agents/openai.yaml                  optional Codex/ChatGPT display name + invocation policy
   core/stance.md                      reviewer stance, P0–P3, red lines, self-failure modes
   core/flow.md                        seven-step sequence, mandatory output per step
   core/gap-checklist.md               7 finding classes, 60+ checkable items, F1–F6
@@ -184,10 +212,17 @@ skills/sci-logic-narrative-review/    the skill (drop into any skill loader)
   assets/report-template.md           the report skeleton
   assets/example-report.md            a filled, passing report
   scripts/check_report.py             report contract checker
-  scripts/check_manifest.py           load-table integrity checker
+  scripts/check_manifest.py           DSH load-table integrity checker
+  scripts/check_platforms.py          Claude / Codex / DSH manifest checker
 examples/demo-report.md               publishable demo report
 docs/METHODOLOGY.md                   where the framework comes from and its limits
+docs/images/                          architecture diagrams (SVG + generator)
 index.html                            landing page (served by GitHub Pages)
+plugin.json                           Codex / Agent Plugins manifest
+.claude-plugin/                       Claude Code plugin + marketplace manifests
+.agents/plugins/marketplace.json      Codex marketplace catalog
+AGENTS.md                             universal single-file entry for any agent
+PLATFORMS.md                          per-platform install and packaging differences
 ```
 
 ## Honest limits

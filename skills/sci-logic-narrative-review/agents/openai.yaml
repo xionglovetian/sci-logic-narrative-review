@@ -1,0 +1,15 @@
+# OpenAI / Codex UI metadata and invocation policy.
+# Portable Agent Skills standard: only `name` + `description` in SKILL.md are required;
+# everything here is optional and ignored by hosts that do not read it.
+interface:
+  display_name: "SCI逻辑叙事审查"
+  short_description: "投稿前模拟审稿：六镜头审计、双轨比对、三路径判定、强制漏洞报告"
+  default_prompt: "用 SCI逻辑叙事审查 审一下这篇稿：先做输入盘点与分级，再按六镜头逐环审计，最后给路径判定和带定位的漏洞报告。"
+
+policy:
+  # Keep implicit invocation on: the description already carries precise trigger phrases
+  # (投稿前自审 / 模拟审稿 / 挑漏洞 / 会不会被拒 / reviewer will ask what).
+  allow_implicit_invocation: true
+
+dependencies:
+  tools: []

@@ -122,8 +122,10 @@
 <header class="hero">
   <div class="wrap">
     <div>
-      <span class="badge">DeepSeek Harness Skill</span>
-      <span class="badge">Agent Skill · SKILL.md</span>
+      <span class="badge">Claude Code</span>
+      <span class="badge">Codex</span>
+      <span class="badge">DeepSeek Harness</span>
+      <span class="badge">Agent Skills 标准</span>
       <span class="badge">MIT</span>
       <span class="badge">零依赖校验器</span>
     </div>
@@ -353,17 +355,37 @@
 
 <section id="install">
   <div class="wrap">
-    <h2>安装与使用</h2>
-    <p class="sec-sub">自包含目录：<code>SKILL.md</code> + <code>manifest.yaml</code> + <code>core/</code> + <code>references/</code> + <code>assets/</code> + <code>scripts/</code>。为 DeepSeek Harness 编写，内容全是普通 Markdown，任何读取 <code>SKILL.md</code> 的框架都能用。</p>
-    <pre><code>git clone https://github.com/xionglovetian/sci-logic-narrative-review.git
+    <h2>安装：一份技能，四端通用</h2>
+    <p class="sec-sub">
+      <strong>Claude Code、Codex、DeepSeek Harness、以及任何读 <code>SKILL.md</code> 的 agent 加载的是同一批文件</strong>——
+      全部是普通 Markdown，遵循 Agent Skills 开放标准。差别只在打包方式。
+    </p>
 
-# 用户级（所有项目可用）
-mkdir -p ~/.agents/skills
-cp -r sci-logic-narrative-review/skills/sci-logic-narrative-review ~/.agents/skills/
+    <h3 style="margin-top:30px">Claude Code</h3>
+    <pre><code># 作为技能直接装（最简单）
+mkdir -p ~/.claude/skills
+cp -r skills/sci-logic-narrative-review ~/.claude/skills/
 
-# 项目级（只在该项目可用）
-mkdir -p .dsh/skills
-cp -r sci-logic-narrative-review/skills/sci-logic-narrative-review .dsh/skills/</code></pre>
+# 或作为插件，从本仓库市场安装（在 Claude Code 里执行）
+/plugin marketplace add xionglovetian/sci-logic-narrative-review
+/plugin install sci-logic-narrative-review@sci-logic-narrative-review-marketplace</code></pre>
+
+    <h3 style="margin-top:26px">Codex</h3>
+    <pre><code># 装成独立技能（推荐）
+mkdir -p ~/.codex/skills
+cp -r skills/sci-logic-narrative-review ~/.codex/skills/
+
+# 或在 ~/.codex/config.toml 显式登记（便于开关，改完需重启）
+[[skills.config]]
+path = "&lt;绝对路径&gt;/skills/sci-logic-narrative-review/SKILL.md"
+enabled = true</code></pre>
+
+    <h3 style="margin-top:26px">DeepSeek Harness</h3>
+    <pre><code>mkdir -p ~/.agents/skills
+cp -r skills/sci-logic-narrative-review ~/.agents/skills/</code></pre>
+
+    <h3 style="margin-top:26px">其它 agent</h3>
+    <p class="sec-sub" style="margin-top:8px">直接让它读仓库根目录的 <code>AGENTS.md</code>——六镜头、判定标准、报告契约的单文件摘要。平台差异全表见 <code>PLATFORMS.md</code>。</p>
 
     <p class="sec-sub" style="margin-top:26px">然后直接说：</p>
     <ul class="plain">
@@ -375,8 +397,10 @@ cp -r sci-logic-narrative-review/skills/sci-logic-narrative-review .dsh/skills/<
     <p class="sec-sub" style="margin-top:26px">首轮需要：稿件 + 图表图注 + 目标期刊。<strong>提供实验台账才能做完整双轨比对</strong>——没有的话报告会标 <code>G1 部分</code>，并禁止判 P-A。</p>
 
     <h3 style="margin-top:34px">契约自检</h3>
-    <pre><code>python skills/sci-logic-narrative-review/scripts/check_report.py   examples/demo-report.md
-python skills/sci-logic-narrative-review/scripts/check_manifest.py</code></pre>
+    <pre><code>python skills/sci-logic-narrative-review/scripts/check_report.py    &lt;报告.md&gt; --any-filename
+python skills/sci-logic-narrative-review/scripts/check_manifest.py
+python skills/sci-logic-narrative-review/scripts/check_platforms.py  # Claude / Codex / DSH 三端清单
+claude plugin validate . --strict                                     # Claude Code 官方校验器</code></pre>
   </div>
 </section>
 

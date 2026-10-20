@@ -1,0 +1,24 @@
+{
+  "name": "sci-logic-narrative-review",
+  "displayName": "SCI逻辑叙事审查",
+  "version": "1.1.0",
+  "description": "SCI逻辑叙事审查 — a pre-submission peer review for manuscripts: six-lens narrative audit, dual-track comparison of claims against the experimental ledger, a three-way path verdict, and a mandatory evidence-pinned vulnerability report every round.",
+  "author": {
+    "name": "xionglovetian",
+    "url": "https://github.com/xionglovetian"
+  },
+  "homepage": "https://xionglovetian.github.io/sci-logic-narrative-review/",
+  "repository": "https://github.com/xionglovetian/sci-logic-narrative-review",
+  "license": "MIT",
+  "keywords": [
+    "peer-review",
+    "manuscript",
+    "academic-writing",
+    "sci",
+    "narrative",
+    "pre-submission"
+  ],
+  "skills": [
+    "./skills/"
+  ]
+}
